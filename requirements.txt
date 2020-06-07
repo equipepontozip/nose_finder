@@ -1,0 +1,4 @@
+jupyter
+cmake
+dlib
+face_recognition
