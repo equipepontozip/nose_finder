@@ -15,8 +15,9 @@ from pyspark.sql.window import Window
 
 def nose_find(filename, name):
     try:
-        print('nose finding', name)
-        NoseFinder( filename )._saveCroppedImage( name )
+        nose_name = 'nariguin_'+name
+        print('nose finding', nose_name)
+        return NoseFinder( filename )._saveCroppedImage( nose_name )
     except:
         pass
      
@@ -28,19 +29,22 @@ master = 'local[*]'
 config = SparkConf().setAppName(appName).setMaster(master)
 sc = SparkContext( conf=config )
 sqlContext = sql.SQLContext(sc)
+sample_img_dir = './bread_pictures'
 
-data0 = sc.wholeTextFiles("./bread_pictures/")
-
-df = data0.toDF()
-window = Window().orderBy(lit('A'))
-#df = df.withColumn( "row_number", row_number().over( window ) )
+image_df = sc.read.format("image").load(sample_img_dir)
+image_df.show()
+exit()
+df = file_data.toDF()
 df = df.withColumn( "filenames", regexp_replace('_1', 'file:',''))
-#df = df.withColumn( "row_number", explode( typedLit( (1 to length(df.filenames) ).toList) ) )
+
 df = df.withColumn( "row_number", monotonically_increasing_id() )
 
-df.select("filenames","row_number").show()
+#df.select("filenames","row_number").show()
 
-df_final = df.select( nose_finding(col("filenames"), col("row_number")) )
+df_final = df.withColumn("images", nose_finding(col("filenames"), col("row_number")) )
+del df
+print(type(df_final))
+print(df_final)
 
 df_final.show()
 

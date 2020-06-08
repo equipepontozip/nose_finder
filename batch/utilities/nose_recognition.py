@@ -43,4 +43,5 @@ class NoseFinder():
     def _saveCroppedImage(self, name):
         pillow_image = Image.fromarray(self._crop_image(0.09))
         pillow_image.save('./bread_nariguins/'+name)
+        return pillow_image
         
