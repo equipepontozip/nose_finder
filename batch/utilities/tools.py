@@ -1,5 +1,5 @@
 import time
-def final_message():
+def finalMessage():
     print("""\
                      _             _           
                     (_)           (_)          
@@ -21,7 +21,6 @@ def final_message():
                                                                                     """)
 
 
-def wait_message(number_of_waits):
-    for counter in range( 0, number_of_waits):
-        print('...')
-        time.sleep(1)
+def timeElapsed(starting_time):
+    final_time = time.clock() - starting_time
+    print("--> TIME ELAPSED : %.3f" % final_time) 
