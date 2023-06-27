@@ -2,3 +2,4 @@ jupyter
 cmake
 dlib
 face_recognition
+Pillow
