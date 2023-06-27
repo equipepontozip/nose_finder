@@ -72,9 +72,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Nasser Boan** - *Initial work* - [NsBoan](https://github.com/nsboan)
+* **Christian Miranda** - *Initial work* - [Chris-Redfield](https://github.com/chris-redfield)
+* **Lucain Lorens** - *Initial work* - [Lucian-Lorens](https://github.com/lucianlorens)
 
 ## License
 
